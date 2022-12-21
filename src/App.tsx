@@ -1,11 +1,14 @@
 import { ThemeProvider } from "./styles/themeProvider";
-import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { Routes } from "./routes";
 
 function App() {
   return (
-    <ThemeProvider>
-      <h1>OI</h1>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <Routes />
+      </ThemeProvider>
+    </BrowserRouter>    
   )
 }
 
