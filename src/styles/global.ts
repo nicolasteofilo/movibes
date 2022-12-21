@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Poppins', sans-serif;
+    background-color: ${({ theme }) => theme.colors.mainBg} 
   }
 `;
 
