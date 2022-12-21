@@ -1,7 +1,13 @@
-import { useState } from 'react'
+import { GlobalStyles } from "./styles/global";
+import { useState } from "react";
 
 function App() {
-  return <h1>Hello Word</h1>
+  return (
+    <>
+      <GlobalStyles />
+      <h1>OI</h1>
+    </>
+  )
 }
 
 export default App
