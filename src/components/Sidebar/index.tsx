@@ -1,16 +1,55 @@
-import { Wrapper, LogoContainer, LinksContainer, LogoutContainer } from "./styles";
-import logoImg from "../../assets/images/logo.svg";
+import { Link } from "react-router-dom";
+import { useTheme } from "styled-components";
 
-export function Sidebar() {
+import { Wrapper, LogoContainer, LinksContainer, LinkContainer, LogoutContainer } from "./styles";
+
+import logoImg from "../../assets/images/logo.svg";
+import { HouseImg } from "../../assets/icons/house";
+import { VideoCameraImg } from "../../assets/icons/videoCamera";
+import { SignOut } from "../../assets/icons/signOut";
+
+interface SidebarProps {
+  currentLocation: string;
+}
+
+export function Sidebar({ currentLocation }: SidebarProps) {
+  const theme = useTheme();
+
+  const links = [
+    {
+      label: 'Home',
+      icon: <HouseImg />,
+      path: '/',
+    },
+    {
+      label: 'Filmes',
+      icon: <VideoCameraImg />,
+      path: '/filmes',
+    }
+  ]
+
   return (
     <Wrapper>
       <LogoContainer>
-        <img src={logoImg} alt="Movibes" role="img" aria-label="Movibes" />
+        <img src={logoImg} alt="Movibes" aria-label="Movibes" />
       </LogoContainer>
 
       <LinksContainer>
-        {/* CARDS */}
+        {links.map((link) => (
+          <LinkContainer isPath={link.path === currentLocation}>
+            <Link to={link.path}>
+              {link.icon}
+              {link.label}
+            </Link>
+          </LinkContainer>
+        ))}
       </LinksContainer>
+      <LogoutContainer>
+        <button>
+          <SignOut fill={theme.colors.gray} />
+          Sair
+        </button>
+      </LogoutContainer>
     </Wrapper>
   )
 }

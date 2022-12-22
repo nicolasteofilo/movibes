@@ -1,11 +1,9 @@
-import { useLocation } from "react-router-dom";
-
 import { PageTemplate } from "../../templates/Page";
 
-export function Home() {
+export function Films() {
   return (
     <PageTemplate>
-      <h1>Home</h1>
+      <h1>Filmes</h1>
     </PageTemplate>
   )
 }
