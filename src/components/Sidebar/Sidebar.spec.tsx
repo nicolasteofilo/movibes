@@ -30,10 +30,10 @@ describe('<Sidebar />', () => {
 
     expect(homeLink).toHaveStyle({
       color: theme.colors.green,
-    })
+    });
     expect(filmsLink).toHaveStyle({
       color: theme.colors.gray,
-    })
+    });
   })
 
   it('should render logout button', () => {
