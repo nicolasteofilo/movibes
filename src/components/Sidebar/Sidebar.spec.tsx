@@ -35,4 +35,12 @@ describe('<Sidebar />', () => {
       color: theme.colors.gray,
     })
   })
+
+  it('should render logout button', () => {
+    renderWithTheme(<Sidebar currentLocation="/" />)
+
+    const logoutButtom = screen.getByRole('button', { name: /Sair/i })
+
+    expect(logoutButtom);
+  })
 })
