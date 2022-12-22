@@ -13,8 +13,8 @@ describe('<Sidebar />', () => {
   it('should be render list of links', () => {
     renderWithTheme(<Sidebar currentLocation="/" />);
 
-    const homeLink = screen.getByLabelText(/Início/i);
-    const filmsLink = screen.getByLabelText(/Filmes/i);
+    const homeLink = screen.getByRole('link', { name: /Início/ });
+    const filmsLink = screen.getByRole('link', { name: /Filmes/ });
 
     expect(homeLink);
     expect(filmsLink);
