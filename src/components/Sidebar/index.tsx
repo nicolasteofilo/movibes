@@ -17,14 +17,16 @@ export function Sidebar({ currentLocation }: SidebarProps) {
 
   const links = [
     {
-      label: 'Home',
+      label: 'Início',
       icon: <HouseImg />,
       path: '/',
+      id: Math.random(),
     },
     {
       label: 'Filmes',
       icon: <VideoCameraImg />,
       path: '/filmes',
+      id: Math.random(),
     }
   ]
 
@@ -36,8 +38,8 @@ export function Sidebar({ currentLocation }: SidebarProps) {
 
       <LinksContainer>
         {links.map((link) => (
-          <LinkContainer isPath={link.path === currentLocation}>
-            <Link to={link.path}>
+          <LinkContainer key={link.id} isPath={link.path === currentLocation}>
+            <Link to={link.path} aria-label={link.label}>
               {link.icon}
               {link.label}
             </Link>
