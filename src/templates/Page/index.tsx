@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import { Container } from "./styles";
+import { Container, ContentContainer } from "./styles";
 
 import { Sidebar } from "../../components/Sidebar";
 
@@ -14,7 +14,9 @@ export function PageTemplate({ children }: PageTemplateProps) {
   return (
     <Container>
       <Sidebar currentLocation={location.pathname} />
-      {children}
+      <ContentContainer>
+        {children}
+      </ContentContainer>
     </Container>
   )
 }
