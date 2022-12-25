@@ -55,7 +55,7 @@ export function Sidebar({ currentLocation }: SidebarProps) {
         </LinksContainer>
         <LogoutContainer>
           <button>
-            <SignOut fill={theme.colors.gray} />
+            <SignOut fill={theme.colors.gray[500]} />
             Sair
           </button>
         </LogoutContainer>

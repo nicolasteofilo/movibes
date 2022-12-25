@@ -21,10 +21,12 @@ export default {
     },
   },
   colors: {
-    mainBg: '#191919',
-    sidebarBg: '#212121',
     white: '#E8E8E8',
-    gray: '#666666',
+    gray: {
+      500: '#666666',
+      600: '#212121',
+      700: '#191919',
+    },
     green: '#3DD2CC',
   },
   spacings: {

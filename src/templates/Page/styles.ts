@@ -11,6 +11,8 @@ export const Container = styled.div`
 `;
 
 export const ContentContainer = styled.div`
+  width: 100%;
+  padding: 3rem;
   ${media.lessThan("medium")`
     position: absolute;
     top: 0;

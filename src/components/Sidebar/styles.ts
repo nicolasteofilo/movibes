@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   position: relative;
   height: 100vh;
   width: 24rem;
-  background: ${({ theme }) => theme.colors.sidebarBg};
+  background: ${({ theme }) => theme.colors.gray[600]};
   border-radius: 0px 40px 40px 0;
 
   ${media.lessThan("medium")`
@@ -76,7 +76,7 @@ export const LinkContainer = styled.div<LinkContainerProps>`
     text-decoration: none;
     font-size: ${({theme}) => theme.font.sizes.large};
     font-weight: ${({theme}) => theme.font.semi};
-    color: ${({theme, isPath}) => isPath ? theme.colors.green : theme.colors.gray};
+    color: ${({theme, isPath}) => isPath ? theme.colors.green : theme.colors.gray[500]};
 
     &:hover {
       filter: brightness(115%);
@@ -87,7 +87,7 @@ export const LinkContainer = styled.div<LinkContainerProps>`
       color: white;
       width: 30px;
       height: 30px;
-      fill: ${({theme, isPath}) => isPath ? theme.colors.green : theme.colors.gray}!important;
+      fill: ${({theme, isPath}) => isPath ? theme.colors.green : theme.colors.gray[500]}!important;
     }
   }
  
@@ -131,7 +131,7 @@ export const LogoutContainer = styled.div`
     align-items: center;
     justify-content: center;
     font-weight: ${({ theme }) => theme.font.semi};
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.gray[500]};
     font-size: ${({ theme }) => theme.font.sizes.medium};
 
     &:hover {

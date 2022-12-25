@@ -66,7 +66,7 @@ describe('<Sidebar />', () => {
       renderWithTheme(<Sidebar currentLocation="/" />);
       await act(async () => {
         resizeWindow(500, 300);
-        })
+      })
 
       const logoutButtom = screen.getByRole('button', { name: /Sair/i });
       const homeLink = screen.getByRole('link', {name: /Início/});
