@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "styled-components";
 
@@ -41,7 +40,7 @@ export function Sidebar({ currentLocation }: SidebarProps) {
           <img src={logoImg} alt="Movibes" aria-label="Movibes" />
         </LogoContainer>
       )}
-      
+
       <ContentContainer>
         <LinksContainer>
           {links.map((link) => (
