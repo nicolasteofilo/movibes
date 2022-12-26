@@ -15,6 +15,12 @@ describe('<TextField />', () => {
     it('should be able render with icon', () => {
       renderWithTheme(<TextField icon={<SearchImg data-testid="icon" />} />);
 
-       expect(screen.getByTestId('icon')).toBeInTheDocument()
+      expect(screen.getByTestId('icon')).toBeInTheDocument()
     })
+
+    it('should be able render without icon', () => {
+      renderWithTheme(<TextField />)
+
+      expect(screen.queryByTestId('icon')).not.toBeInTheDocument()
+  })
 })
