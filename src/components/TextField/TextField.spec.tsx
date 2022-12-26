@@ -11,4 +11,10 @@ describe('<TextField />', () => {
 
       expect(screen.getByPlaceholderText(/hey you/i)).toBeInTheDocument();
     })
+
+    it('should be able render with icon', () => {
+      renderWithTheme(<TextField icon={<SearchImg data-testid="icon" />} />);
+
+       expect(screen.getByTestId('icon')).toBeInTheDocument()
+    })
 })
