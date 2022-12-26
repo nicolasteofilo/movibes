@@ -7,7 +7,7 @@ import { Wrapper, LogoContainer, ContentContainer, LinksContainer, LinkContainer
 import logoImg from "../../assets/images/logo.svg";
 import { HouseImg } from "../../assets/icons/house";
 import { VideoCameraImg } from "../../assets/icons/videoCamera";
-import { SignOut } from "../../assets/icons/signOut";
+import { SignOutImg } from "../../assets/icons/signOut";
 
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
@@ -55,7 +55,7 @@ export function Sidebar({ currentLocation }: SidebarProps) {
         </LinksContainer>
         <LogoutContainer>
           <button>
-            <SignOut fill={theme.colors.gray[500]} />
+            <SignOutImg fill={theme.colors.gray[500]} />
             Sair
           </button>
         </LogoutContainer>
