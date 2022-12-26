@@ -1,7 +1,5 @@
 import { screen } from "@testing-library/react";
 
-import { SearchImg } from "../../assets/icons/search";
-
 import { renderWithTheme } from "../../utils/tests/helpers";
 import { Header } from ".";
 
