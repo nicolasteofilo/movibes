@@ -40,7 +40,7 @@ describe('<Sidebar />', () => {
       color: theme.colors.green,
     });
     expect(filmsLink).toHaveStyle({
-      color: theme.colors.gray,
+      color: theme.colors.gray[500],
     });
   })
   
@@ -50,7 +50,7 @@ describe('<Sidebar />', () => {
     const filmsLink = screen.getByRole('link', {name: /Filmes/});
 
     expect(filmsLink).toHaveStyle({
-      color: theme.colors.green
+      color: theme.colors.green,
     });
   })
 
