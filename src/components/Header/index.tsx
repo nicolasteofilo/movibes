@@ -15,7 +15,7 @@ interface HeaderProps {
 }
 
 export function Header({ user }: HeaderProps) {
-  const { setSearch } = useSearch();
+  const {  search, setSearch } = useSearch();
   const theme = useTheme();
 
   return (
@@ -24,6 +24,7 @@ export function Header({ user }: HeaderProps) {
         icon={<SearchImg fill={theme.colors.gray[500]} />}
         placeholder="Pesquise por filmes, séries..."
         onChange={(event) => setSearch(event.target.value)}
+        value={search}
       />
 
       <InfosContainer>
