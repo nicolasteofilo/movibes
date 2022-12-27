@@ -6,7 +6,6 @@ import theme from "../../styles/theme";
 
 import { Sidebar } from ".";
 
-
 const resizeWindow = (x: number, y: number) => {
   window.innerWidth = x;
   window.innerHeight = y;
@@ -43,10 +42,10 @@ describe('<Sidebar />', () => {
       color: theme.colors.gray[500],
     });
   })
-  
+
   it('ensure color change on icons', async () => {
     renderWithTheme(<Sidebar currentLocation="/filmes" />);
-   
+
     const filmsLink = screen.getByRole('link', {name: /Filmes/});
 
     expect(filmsLink).toHaveStyle({
