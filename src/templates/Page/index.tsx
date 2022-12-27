@@ -16,7 +16,7 @@ export function PageTemplate({ children }: PageTemplateProps) {
     <Container>
       <Sidebar currentLocation={location.pathname} />
       <ContentContainer>
-        <Header />
+        <Header user={{ name: "Nicolas Teófilo", imageUrl: "https://github.com/nicolasteofilo.png" }} />
         {children}
       </ContentContainer>
     </Container>
