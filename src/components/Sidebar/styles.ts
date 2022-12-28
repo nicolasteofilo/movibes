@@ -2,14 +2,14 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 export const Wrapper = styled.div`
-  position: relative;
+  position: fixed;
   height: 100vh;
   width: 24rem;
   background: ${({ theme }) => theme.colors.gray[600]};
   border-radius: 0px 40px 40px 0;
 
   ${media.lessThan("medium")`
-    position: none;
+    z-index: 999;
     height: 60px;
     width: 100%;
 
@@ -56,14 +56,15 @@ export const LinksContainer = styled.div`
 `;
 
 interface LinkContainerProps {
-  isPath: boolean; 
-};
+  isPath: boolean;
+}
 
 export const LinkContainer = styled.div<LinkContainerProps>`
   width: 100%;
   height: 5.375rem;
-  background: ${({isPath}) => isPath && 'rgba(61, 210, 204, 0.4)'};
-  border-right: ${({theme, isPath}) => isPath ? `5px solid ${theme.colors.green}` : null};
+  background: ${({ isPath }) => isPath && "rgba(61, 210, 204, 0.4)"};
+  border-right: ${({ theme, isPath }) =>
+    isPath ? `5px solid ${theme.colors.green}` : null};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,25 +75,29 @@ export const LinkContainer = styled.div<LinkContainerProps>`
     width: 100%;
     align-items: center;
     text-decoration: none;
-    font-size: ${({theme}) => theme.font.sizes.large};
-    font-weight: ${({theme}) => theme.font.semi};
-    color: ${({theme, isPath}) => isPath ? theme.colors.green : theme.colors.gray[500]};
+    ${({ theme, isPath }) => css`
+      font-size: ${theme.font.sizes.large};
+      font-weight: ${theme.font.semi};
+      color: ${isPath ? theme.colors.green : theme.colors.gray[500]};
+    `}
 
     &:hover {
       filter: brightness(115%);
     }
 
     svg {
-      padding-right: ${({theme}) => theme.spacings.xxsmall};
       color: white;
       width: 30px;
       height: 30px;
-      fill: ${({theme, isPath}) => isPath ? theme.colors.green : theme.colors.gray[500]}!important;
+      ${({ theme, isPath }) => css`
+        padding-right: ${theme.spacings.xxsmall};
+        fill: ${isPath ? theme.colors.green : theme.colors.gray[500]}!important;
+      `}
     }
   }
- 
+
   & + & {
-    margin-top ${({theme}) => theme.spacings.medium}
+    margin-top: ${({ theme }) => theme.spacings.medium};
   }
 
   ${media.lessThan("medium")`
@@ -130,9 +135,11 @@ export const LogoutContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: ${({ theme }) => theme.font.semi};
-    color: ${({ theme }) => theme.colors.gray[500]};
-    font-size: ${({ theme }) => theme.font.sizes.medium};
+    ${({ theme }) => css`
+      font-weight: ${theme.font.semi};
+      color: ${theme.colors.gray[500]};
+      font-size: ${theme.font.sizes.medium};
+    `}
 
     &:hover {
       filter: brightness(115%);
