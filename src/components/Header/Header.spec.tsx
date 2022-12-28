@@ -1,4 +1,5 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import { renderWithTheme } from "../../utils/tests/helpers";
 import { Header } from ".";
@@ -11,7 +12,12 @@ describe('<Header />', () => {
   it('should be able render search input', () => {
     renderWithTheme(<Header user={user} />);
 
-    expect(screen.getByPlaceholderText(/Pesquise por filmes, séries.../i))
+    const input = screen.getByPlaceholderText("Pesquise por filmes, séries...");
+    const text = "Hello Word";
+
+    userEvent.type(input, text).then(() => {
+      expect(input).toHaveValue(text);
+    })
   })
 
   it('should be able render the avatar image', () => {
