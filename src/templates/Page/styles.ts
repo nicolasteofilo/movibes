@@ -17,4 +17,12 @@ export const ContentContainer = styled.div`
     position: absolute;
     top: 0;
   `}
+
+  ${media.greaterThan("medium")`
+    margin-left: 24rem;
+  `}
+
+  header {
+    margin-bottom: 4.5rem;
+  }
 `;
