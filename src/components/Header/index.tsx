@@ -15,7 +15,7 @@ interface HeaderProps {
 }
 
 export function Header({ user }: HeaderProps) {
-  const {  search, setSearch } = useSearch();
+  const { search, setSearch } = useSearch();
   const theme = useTheme();
 
   return (
