@@ -9,7 +9,7 @@ interface MovieCardProps {
 
 export function MovieCard({ name, coverUrl, rate }: MovieCardProps) {
   return (
-    <Container imageUrl={coverUrl} title={name} aria-label={name}>
+    <Container imageUrl={coverUrl} aria-label={name}>
       <RateContainer>
         <Rate>
           <StarImg fill="#D2AC17" aria-label="estrela" />

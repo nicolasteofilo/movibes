@@ -6,26 +6,13 @@ interface CoverProps {
 
 export const Container = styled.div<CoverProps>`
   position: relative;
-  width: 200px;
-  height: 300px;
+  width: 133px;
+  height: 215px;
   background-image: ${({ imageUrl }) => `url("${imageUrl}")`};
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   border-radius: 1.125rem;
-
-  &[title]:hover::after {
-    content: attr(title);
-    background-color: ${({ theme }) => theme.colors.gray[700]};
-    font-weight: ${({ theme }) => theme.font.light};
-    font-size: ${({ theme }) => theme.font.sizes.xsmall};
-    border-radius: 20px;
-    padding: ${({ theme }) => theme.spacings.xxsmall};
-
-    position: absolute;
-    left: 40px;
-    top: 260px;
-  }
 `;
 
 export const RateContainer = styled.div`
