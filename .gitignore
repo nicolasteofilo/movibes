@@ -23,5 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 
+# Enviroments
+.env
+.env.prod
+.env.dev
+
 # Tests
 coverage
