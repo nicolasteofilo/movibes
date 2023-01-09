@@ -1,5 +1,6 @@
 import axios from "axios";
+import { theMoviesDbApiKey } from "../config/env";
 
 export const api = axios.create({
-  baseURL: `https://imdb-api.com/pt-BR/API/`
-})
+  baseURL: `https://api.themoviedb.org/3/`,
+});
