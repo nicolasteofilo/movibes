@@ -7,6 +7,8 @@ import { theMoviesDbApiKey } from "../../config/env";
 import { api } from "../../services/api";
 import { MoviesList, Movie } from "./types";
 
+import { MoviesGrid } from "./styles";
+
 export function Home() {
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[]>([]);
 
@@ -21,13 +23,15 @@ export function Home() {
 
   return (
     <PageTemplate>
-      {mostPopularMovies.map((movie) => {
-        const name = movie.original_title;
-        const rate = Number(movie.vote_average);
-        const coverUrl = `https://image.tmdb.org/t/p/w220_and_h330_face/${movie.poster_path}`;
+      <MoviesGrid>
+        {mostPopularMovies.map((movie) => {
+          const name = movie.original_title;
+          const rate = Number(movie.vote_average);
+          const coverUrl = `https://image.tmdb.org/t/p/w220_and_h330_face/${movie.poster_path}`;
 
-        return <MovieCard name={name} rate={rate} coverUrl={coverUrl} />;
-      })}
+          return <MovieCard name={name} rate={rate} coverUrl={coverUrl} />;
+        })}
+      </MoviesGrid>
     </PageTemplate>
   );
 }

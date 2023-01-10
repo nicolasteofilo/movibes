@@ -5,13 +5,14 @@ export const Wrapper = styled.div`
   position: fixed;
   height: 100vh;
   width: 24rem;
+  bottom: 0px;
   background: ${({ theme }) => theme.colors.gray[600]};
   border-radius: 0px 40px 40px 0;
 
   ${media.lessThan("medium")`
-    z-index: 999;
     height: 60px;
     width: 100%;
+    right: 0;
 
     display: flex;
     flex-direction: row;

@@ -13,12 +13,19 @@ export function PageTemplate({ children }: PageTemplateProps) {
   const location = useLocation();
 
   return (
-    <Container>
-      <Sidebar currentLocation={location.pathname} />
-      <ContentContainer>
-        <Header user={{ name: "Nicolas Teófilo", imageUrl: "https://github.com/nicolasteofilo.png" }} />
-        {children}
-      </ContentContainer>
-    </Container>
-  )
+    <>
+      <Container>
+        <ContentContainer>
+          <Header
+            user={{
+              name: "Nicolas Teófilo",
+              imageUrl: "https://github.com/nicolasteofilo.png",
+            }}
+          />
+          {children}
+        </ContentContainer>
+        <Sidebar currentLocation={location.pathname} />
+      </Container>
+    </>
+  );
 }
