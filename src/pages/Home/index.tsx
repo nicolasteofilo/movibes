@@ -8,6 +8,7 @@ import { api } from "../../services/api";
 import { MoviesList, Movie } from "./types";
 
 import { MoviesRow } from "./styles";
+import { Heading } from "../../components/Heading";
 
 export function Home() {
   const [mostPopularMovies, setMostPopularMovies] = useState<Movie[]>([]);
@@ -23,6 +24,7 @@ export function Home() {
 
   return (
     <PageTemplate>
+      <Heading title="Populares" />
       <MoviesRow>
         {mostPopularMovies.map((movie) => {
           const name = movie.original_title;
