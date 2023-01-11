@@ -1,7 +1,7 @@
 import { StarImg } from "../../assets/icons/star";
-import { Container, Rate, RateContainer, Wrapper } from "./styles";
+import { Wrapper, Container, Rate, RateContainer } from "./styles";
 
-interface MovieCardProps {
+export interface MovieCardProps {
   name: string;
   coverUrl: string;
   rate: number;
@@ -9,13 +9,15 @@ interface MovieCardProps {
 
 export function MovieCard({ name, coverUrl, rate }: MovieCardProps) {
   return (
-    <Container imageUrl={coverUrl} aria-label={name}>
-      <RateContainer>
-        <Rate>
-          <StarImg fill="#D2AC17" aria-label="estrela" />
-          {rate}
-        </Rate>
-      </RateContainer>
-    </Container>
+    <Wrapper>
+      <Container imageUrl={coverUrl} aria-label={name}>
+        <RateContainer>
+          <Rate>
+            <StarImg fill="#D2AC17" aria-label="estrela" />
+            {rate}
+          </Rate>
+        </RateContainer>
+      </Container>
+    </Wrapper>
   );
 }

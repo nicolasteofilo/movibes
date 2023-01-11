@@ -4,10 +4,7 @@ interface CoverProps {
   imageUrl: string;
 }
 
-export const Wrapper = styled.div`
-  width: 133px;
-  height: 215px;
-`;
+export const Wrapper = styled.div``;
 
 export const Container = styled.div<CoverProps>`
   position: relative;
