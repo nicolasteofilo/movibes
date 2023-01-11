@@ -11,14 +11,14 @@ const film = {
 };
 
 describe("<MovieCard />", () => {
-  it('should be render a card for the movie', () => {
+  it("should be render a card for the movie", () => {
     renderWithTheme(<MovieCard {...film} />);
 
     expect(screen.getByLabelText(/Top Gun: Maverick/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/estrela/i)).toBeInTheDocument();
     expect(screen.getByText(/8.4/i)).toBeInTheDocument();
-    expect(screen.getByTitle(/Top Gun: Maverick/i)).toHaveStyle({
-      'background-image': `url("${film.coverUrl}")`,
-    })
-  })
+    expect(screen.getByLabelText(/Top Gun: Maverick/i)).toHaveStyle({
+      "background-image": `url("${film.coverUrl}")`,
+    });
+  });
 });
