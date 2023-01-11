@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
-
-import { MovieCard, MovieCardProps } from "../../components/MovieCard";
 import { PageTemplate } from "../../templates/Page";
+import { Heading } from "../../components/Heading";
+import { MovieCard } from "../../components/MovieCard";
 
 import { MoviesRow } from "./styles";
-import { Heading } from "../../components/Heading";
-import MoviesService from "../../services/MoviesService";
+import { useHome } from "./useHome";
 
 export function Home() {
-  const [popularMovies, setPopularMovies] = useState<MovieCardProps[]>([]);
-
-  useEffect(() => {
-    (async () => {
-      const popularMovies = await MoviesService.getPopularMovies();
-      setPopularMovies(popularMovies);
-    })();
-  }, []);
+  const { popularMovies } = useHome();
 
   return (
     <PageTemplate>
