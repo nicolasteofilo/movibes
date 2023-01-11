@@ -4,6 +4,11 @@ interface CoverProps {
   imageUrl: string;
 }
 
+export const Wrapper = styled.div`
+  width: 133px;
+  height: 215px;
+`;
+
 export const Container = styled.div<CoverProps>`
   position: relative;
   width: 133px;
@@ -13,6 +18,7 @@ export const Container = styled.div<CoverProps>`
   background-size: cover;
   background-position: center;
   border-radius: 1.125rem;
+  cursor: pointer;
 `;
 
 export const RateContainer = styled.div`

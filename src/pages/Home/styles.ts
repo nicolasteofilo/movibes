@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import media from "styled-media-query";
 
-export const MoviesGrid = styled.div`
-  display: grid;
-  width: 750px;
-  grid-template-columns: repeat(5, 2fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 15px;
+export const MoviesRow = styled.div`
+  display: flex;
+  overflow-x: auto;
+  width: 1100px;
 
-  ${media.lessThan("large")`
+  div + div {
+    margin-left: ${({ theme }) => theme.spacings.xsmall};
+  }
+
+  /* ${media.lessThan("large")`
     width: 450px;
     grid-template-columns: repeat(3, 2fr);
   `}
@@ -16,5 +18,5 @@ export const MoviesGrid = styled.div`
   ${media.lessThan("medium")`
     width: 300px;
     grid-template-columns: repeat(2, 2fr);
-  `}
+  `} */
 `;

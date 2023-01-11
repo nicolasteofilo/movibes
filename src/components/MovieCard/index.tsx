@@ -1,5 +1,5 @@
 import { StarImg } from "../../assets/icons/star";
-import { Container, Rate, RateContainer } from "./styles";
+import { Container, Rate, RateContainer, Wrapper } from "./styles";
 
 interface MovieCardProps {
   name: string;
