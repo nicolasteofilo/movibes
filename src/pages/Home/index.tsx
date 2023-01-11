@@ -8,6 +8,7 @@ import { api, MostPopularMoviesAPI, MovieAPI } from "../../services/api";
 
 import { MoviesRow } from "./styles";
 import { Heading } from "../../components/Heading";
+import MovieMapper from "../../services/mappers/MovieMapper";
 
 export function Home() {
   const [mostPopularMovies, setMostPopularMovies] = useState<MovieCardProps[]>(
@@ -19,11 +20,11 @@ export function Home() {
       const { data } = await api.get<MostPopularMoviesAPI>(
         `/movie/popular?api_key=${theMoviesDbApiKey}&language=pt-BR`
       );
-      const mappedMovies = data.results.map((movie: MovieAPI) => ({
-        name: movie.original_title,
-        rate: Number(movie.vote_average),
-        coverUrl: `https://image.tmdb.org/t/p/w220_and_h330_face/${movie.poster_path}`,
-      })) as [];
+
+      const mappedMovies = data.results.map((movie) =>
+        MovieMapper.toDomain(movie)
+      );
+
       setMostPopularMovies(mappedMovies);
     })();
   }, []);
