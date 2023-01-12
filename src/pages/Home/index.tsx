@@ -19,7 +19,7 @@ export function Home() {
         movies={popularMovies}
         title="Populares"
         mB={theme.spacings.medium}
-        isLoading={isLoadingPopularMovies}
+        isLoading={true}
       />
       <MoviesSection
         movies={topRatedMovies}

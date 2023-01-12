@@ -1,4 +1,5 @@
 import { Heading } from "../Heading";
+import { Spinner } from "../Spinner";
 import { MovieCard, MovieCardProps } from "../MovieCard";
 
 import { Container, MoviesRow } from "./styles";
@@ -21,7 +22,7 @@ export function MoviesSection({
   return (
     <Container marginBottom={mB}>
       <Heading title={title} />
-      {isLoading && !hasError && <h1>Carregando...</h1>}
+      {isLoading && !hasError && <Spinner />}
       <MoviesRow>
         {movies.map((movie) => (
           <MovieCard key={movie.id} {...movie} />
