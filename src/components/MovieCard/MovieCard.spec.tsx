@@ -1,9 +1,10 @@
 import { screen } from "@testing-library/react";
 
 import { renderWithTheme } from "../../utils/tests/helpers";
-import { MovieCard } from ".";
+import { MovieCard, MovieCardProps } from ".";
 
-const film = {
+const film: MovieCardProps = {
+  id: "2",
   name: "Top Gun: Maverick",
   rate: 8.4,
   coverUrl:

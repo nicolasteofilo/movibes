@@ -4,15 +4,20 @@ import MoviesService from "../../services/MoviesService";
 
 export function useHome() {
   const [popularMovies, setPopularMovies] = useState<MovieCardProps[]>([]);
+  const [topRatedMovies, setTopRatedMovies] = useState<MovieCardProps[]>([]);
 
   useEffect(() => {
-    (async () => {
-      const popularMovies = await MoviesService.getPopularMovies();
-      setPopularMovies(popularMovies);
-    })();
+    Promise.all([
+      MoviesService.getPopularMovies(),
+      MoviesService.getTopRatedMovies(),
+    ]).then((values) => {
+      setPopularMovies(values[0]);
+      setTopRatedMovies(values[1]);
+    });
   }, []);
 
   return {
     popularMovies,
+    topRatedMovies,
   };
 }

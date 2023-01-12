@@ -14,7 +14,7 @@ export function MoviesSection({ title, movies }: MoviesSectionProps) {
       <Heading title={title} />
       <MoviesRow>
         {movies.map((movie) => (
-          <MovieCard {...movie} />
+          <MovieCard key={movie.id} {...movie} />
         ))}
       </MoviesRow>
     </Container>

@@ -2,6 +2,7 @@ import { StarImg } from "../../assets/icons/star";
 import { Wrapper, Container, Rate, RateContainer } from "./styles";
 
 export interface MovieCardProps {
+  id: string;
   name: string;
   coverUrl: string;
   rate: number;
