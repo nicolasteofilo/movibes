@@ -6,11 +6,12 @@ import { Container, MoviesRow } from "./styles";
 interface MoviesSectionProps {
   movies: MovieCardProps[];
   title: string;
+  mB?: string;
 }
 
-export function MoviesSection({ title, movies }: MoviesSectionProps) {
+export function MoviesSection({ title, movies, mB }: MoviesSectionProps) {
   return (
-    <Container>
+    <Container marginBottom={mB}>
       <Heading title={title} />
       <MoviesRow>
         {movies.map((movie) => (

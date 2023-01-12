@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  marginBottom?: string;
+}
+
+export const Container = styled.div<ContainerProps>`
   > h1 {
     margin-bottom: ${({ theme }) => theme.spacings.xxsmall};
   }
+
+  margin-bottom: ${({ marginBottom }) => marginBottom};
 `;
 
 export const MoviesRow = styled.div`
