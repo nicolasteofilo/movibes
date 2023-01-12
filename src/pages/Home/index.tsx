@@ -5,7 +5,12 @@ import { MoviesSection } from "../../components/MoviesSection";
 import { useTheme } from "styled-components";
 
 export function Home() {
-  const { popularMovies, topRatedMovies } = useHome();
+  const {
+    popularMovies,
+    topRatedMovies,
+    isLoadingPopularMovies,
+    isLoadingtopRatedMovies,
+  } = useHome();
   const theme = useTheme();
 
   return (
@@ -14,8 +19,13 @@ export function Home() {
         movies={popularMovies}
         title="Populares"
         mB={theme.spacings.medium}
+        isLoading={isLoadingPopularMovies}
       />
-      <MoviesSection movies={topRatedMovies} title="Melhores avaliados" />
+      <MoviesSection
+        movies={topRatedMovies}
+        title="Melhores avaliados"
+        isLoading={isLoadingtopRatedMovies}
+      />
     </PageTemplate>
   );
 }
