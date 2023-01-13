@@ -5,6 +5,7 @@ export const Container = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 4.5rem;
 `;
 
 export const InfosContainer = styled.div`

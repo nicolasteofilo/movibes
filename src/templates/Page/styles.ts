@@ -4,6 +4,7 @@ import media from "styled-media-query";
 export const Container = styled.div`
   display: flex;
   height: 100vh;
+  overflow-x: inherit;
 
   ${media.lessThan("medium")`
     flex-direction: column-reverse;
@@ -13,6 +14,7 @@ export const Container = styled.div`
 export const ContentContainer = styled.div`
   width: 100%;
   padding: 3rem;
+
   ${media.lessThan("medium")`
     position: absolute;
     top: 0;
@@ -21,8 +23,4 @@ export const ContentContainer = styled.div`
   ${media.greaterThan("medium")`
     margin-left: 24rem;
   `}
-
-  header {
-    margin-bottom: 4.5rem;
-  }
 `;

@@ -19,11 +19,12 @@ export function Home() {
         movies={popularMovies}
         title="Populares"
         mB={theme.spacings.medium}
-        isLoading={true}
+        isLoading={isLoadingPopularMovies}
       />
       <MoviesSection
         movies={topRatedMovies}
         title="Melhores avaliados"
+        mB={theme.spacings.large}
         isLoading={isLoadingtopRatedMovies}
       />
     </PageTemplate>

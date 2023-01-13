@@ -2,7 +2,7 @@ import { Heading } from "../Heading";
 import { Spinner } from "../Spinner";
 import { MovieCard, MovieCardProps } from "../MovieCard";
 
-import { Container, MoviesRow } from "./styles";
+import { Container, LoadingContainer, MoviesRow } from "./styles";
 
 interface MoviesSectionProps {
   movies: MovieCardProps[];
@@ -22,12 +22,16 @@ export function MoviesSection({
   return (
     <Container marginBottom={mB}>
       <Heading title={title} />
-      {isLoading && !hasError && <Spinner />}
-      <MoviesRow>
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} {...movie} />
-        ))}
-      </MoviesRow>
+      <LoadingContainer>
+        {isLoading && !hasError && <Spinner />}
+      </LoadingContainer>
+      {!isLoading && (
+        <MoviesRow>
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} {...movie} />
+          ))}
+        </MoviesRow>
+      )}
     </Container>
   );
 }
