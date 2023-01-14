@@ -26,6 +26,13 @@ export const RateContainer = styled.div`
   font-size: ${({ theme }) => theme.font.sizes.xsmall};
   font-weight: ${({ theme }) => theme.font.semi};
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 export const Rate = styled.span`

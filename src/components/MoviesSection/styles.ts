@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import media from "styled-media-query";
 
@@ -20,10 +21,11 @@ export const LoadingContainer = styled.div`
   width: 100%;
 `;
 
-export const MoviesRow = styled.div`
+export const MoviesContainer = styled.div`
   display: flex;
   overflow-x: auto;
   width: 100%;
+  max-width: 79vw;
 
   ${media.lessThan("medium")`
 

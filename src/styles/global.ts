@@ -19,7 +19,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
     background-color: ${({ theme }) => theme.colors.gray[700]};
     color: ${({ theme }) => theme.colors.white};
+    overflow-x: hidden;
   }
 `;
 
-export { GlobalStyles }
+export { GlobalStyles };

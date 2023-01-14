@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
+
 import { Heading } from "../Heading";
 import { Spinner } from "../Spinner";
 import { MovieCard, MovieCardProps } from "../MovieCard";
 
-import { Container, LoadingContainer, MoviesRow } from "./styles";
+import { Container, LoadingContainer, MoviesContainer } from "./styles";
 
 interface MoviesSectionProps {
   movies: MovieCardProps[];
@@ -26,11 +28,11 @@ export function MoviesSection({
         {isLoading && !hasError && <Spinner />}
       </LoadingContainer>
       {!isLoading && (
-        <MoviesRow>
+        <MoviesContainer>
           {movies.map((movie) => (
             <MovieCard key={movie.id} {...movie} />
           ))}
-        </MoviesRow>
+        </MoviesContainer>
       )}
     </Container>
   );
