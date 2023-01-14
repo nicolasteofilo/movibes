@@ -17,7 +17,9 @@ const movies: MovieCardProps[] = [
 
 describe("<MoviesSection />", () => {
   it("should be render heading and movies correctly", () => {
-    renderWithTheme(<MoviesSection movies={movies} title="Popular" />);
+    renderWithTheme(
+      <MoviesSection movies={movies} title="Popular" isLoading={false} />
+    );
 
     expect(
       screen.getByRole("heading", { name: /popular/i })
