@@ -1,31 +1,40 @@
-import { api, MostPopularMoviesAPI } from "./api";
+import { api, MostPopularMoviesAPI, TopRatedMoviesAPI } from "./api";
 import MovieMapper from "./mappers/MoviesMapper";
 
 import { theMoviesDbApiKey } from "../config/env";
+import { APIError } from "../errors/APIError";
 
 class MoviesService {
   async getPopularMovies() {
-    const { data } = await api.get<MostPopularMoviesAPI>(
-      `/movie/popular?api_key=${theMoviesDbApiKey}&language=pt-BR`
-    );
+    try {
+      const {
+        data: { results },
+      } = await api.get<MostPopularMoviesAPI>(
+        `/moviee/popular?api_key=${theMoviesDbApiKey}&language=pt-BR`
+      );
 
-    const mappedMovies = data.results.map((movie) =>
-      MovieMapper.toDomain(movie)
-    );
+      const mappedMovies = results.map((movie) => MovieMapper.toDomain(movie));
 
-    return mappedMovies;
+      return mappedMovies;
+    } catch (err: any) {
+      throw new APIError(err.response?.data);
+    }
   }
 
   async getTopRatedMovies() {
-    const { data } = await api.get<MostPopularMoviesAPI>(
-      `/movie/top_rated?api_key=${theMoviesDbApiKey}&language=pt-BR`
-    );
+    try {
+      const {
+        data: { results },
+      } = await api.get<TopRatedMoviesAPI>(
+        `/movie/top_rated?api_key=${theMoviesDbApiKey}&language=pt-BR`
+      );
 
-    const mappedMovies = data.results.map((movie) =>
-      MovieMapper.toDomain(movie)
-    );
+      const mappedMovies = results.map((movie) => MovieMapper.toDomain(movie));
 
-    return mappedMovies;
+      return mappedMovies;
+    } catch (err: any) {
+      throw new APIError(err.response?.data);
+    }
   }
 }
 

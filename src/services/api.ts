@@ -27,3 +27,10 @@ export interface MostPopularMoviesAPI {
   total_pages: number;
   total_results: number;
 }
+
+export interface TopRatedMoviesAPI {
+  page: number;
+  results: MovieAPI[];
+  total_pages: number;
+  total_results: number;
+}
