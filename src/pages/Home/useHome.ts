@@ -5,28 +5,29 @@ import MoviesService from "../../services/MoviesService";
 export function useHome() {
   const [popularMovies, setPopularMovies] = useState<MovieCardProps[]>([]);
   const [topRatedMovies, setTopRatedMovies] = useState<MovieCardProps[]>([]);
+  const [hasErrorPopularMovies, setHasErrorPopularMovies] = useState(false);
+  const [hasErrorTopRatedMovies, setHasErrorTopRatedMovies] = useState(false);
   const [isLoadingPopularMovies, setIsLoadingPopularMovies] = useState(true);
-  const [isLoadingtopRatedMovies, setIsLoadingtopRatedMovies] = useState(true);
+  const [isLoadingTopRatedMovies, setIsLoadingTopRatedMovies] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      MoviesService.getPopularMovies(),
-      MoviesService.getTopRatedMovies(),
-    ])
-      .then((values) => {
-        setPopularMovies(values[0]);
-        setTopRatedMovies(values[1]);
-      })
-      .finally(() => {
-        setIsLoadingPopularMovies(false);
-        setIsLoadingtopRatedMovies(false);
-      });
+    MoviesService.getPopularMovies()
+      .then((movies) => setPopularMovies(movies))
+      .catch(() => setHasErrorPopularMovies(true))
+      .finally(() => setIsLoadingPopularMovies(false));
+
+    MoviesService.getTopRatedMovies()
+      .then((movies) => setTopRatedMovies(movies))
+      .catch(() => setHasErrorTopRatedMovies(true))
+      .finally(() => setIsLoadingTopRatedMovies(false));
   }, []);
 
   return {
     popularMovies,
     topRatedMovies,
     isLoadingPopularMovies,
-    isLoadingtopRatedMovies,
+    isLoadingTopRatedMovies,
+    hasErrorPopularMovies,
+    hasErrorTopRatedMovies,
   };
 }
